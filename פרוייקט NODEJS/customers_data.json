@@ -1,0 +1,53 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "שרי פסטינגר",
+      "email": "s0527115231@gmail.com",
+      "password": "sgF9YA*7Dr8b",
+      "isAdmin": true
+    },
+    {
+      "id": "2",
+      "name": "דוד כהן",
+      "email": "david.cohen@example.com",
+      "isAdmin": false,
+      "password": "adminDavid!"
+    },
+    {
+      "id": "3",
+      "name": "שרה מזרחי",
+      "email": "sara.mizrahi@example.com",
+      "isAdmin": false,
+      "password": "saraPass22"
+    },
+    {
+      "id": "4",
+      "name": "יוסי פרץ",
+      "email": "yossi.peretz@example.com",
+      "isAdmin": false,
+      "password": "yossi456"
+    },
+    {
+      "id": "5",
+      "name": "מיכל אברהם",
+      "email": "michal.abraham@example.com",
+      "isAdmin": false,
+      "password": "michal789"
+    },
+    {
+      "id": "6",
+      "name": "מירי",
+      "email": "miri@gmail.com",
+      "password": "yfk$DjjPKC1r",
+      "isAdmin": false
+    },
+    {
+      "id": "7",
+      "name": "chanalif",
+      "email": "chana52458@gmail.com",
+      "password": "%276OfX!GE@4",
+      "isAdmin": false
+    }
+  ]
+}
