@@ -8,13 +8,13 @@ const customerRepository = require('../Repositories/customers.repositoty');
 // const customerService = new CustomerService();
 // למשל בתוך customers.routes.js
 
-router.post('/login', async (req, res) => {
+router.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
   const result = await customerService.login(email, password);
   res.json(result); // תמיד מחזיר אובייקט עם success ו-message
 });
 
-router.post('/signUp', async (req, res) => {
+router.post('/api/signUp', async (req, res) => {
    try {
     console.log('dataPath =', data); // זה צריך להדפיס נתיב כמו C:\Users\... וכו'
 
@@ -39,7 +39,7 @@ router.post('/signUp', async (req, res) => {
 });
 
 // עדכון לקוח לפי ID
-router.put('/:id', async (req, res) => {
+router.put('/api/:id', async (req, res) => {
   try {
     const id = req.params.id;
     const updatedData = req.body;
