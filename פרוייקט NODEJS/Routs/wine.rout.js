@@ -22,7 +22,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // API להעלאת תמונה
-router.post('/upload-image', upload.single('image'), (req, res) => {
+router.post('/api/upload-image', upload.single('image'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'No file uploaded' });
   }
@@ -38,7 +38,7 @@ async function generateNewId() {
 }
 
 // הוספת יין חדש דרך רואטר (אם לא משתמשים בשירות)
-router.post('/wines', async (req, res) => {
+router.post('/api/wines', async (req, res) => {
   try {
     const rawDataWine = JSON.parse(fs.readFileSync(dataPath, 'utf-8'));
     const winesArray = rawDataWine.wines;
@@ -64,13 +64,13 @@ router.post('/wines', async (req, res) => {
 });
 
 // Get all wines
-router.get('/', async (req, res) => {
+router.get('/api/', async (req, res) => {
     const wines = await wineService.getAllWines();
     res.json(wines);
 });
 
 // Get wines by category
-router.get('/category/:category', async (req, res) => {
+router.get('/api/category/:category', async (req, res) => {
   try {
     const category = req.params.category;
     const wines = await wineService.findWinesByCategory(category);
@@ -81,7 +81,7 @@ router.get('/category/:category', async (req, res) => {
 });
 
 // Get wine by id
-router.get('/:id', async (req, res) => {
+router.get('/api/:id', async (req, res) => {
     const id = req.params.id;
     const wine = await wineService.getWineById(id);
 
@@ -92,7 +92,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Add review to wine
-router.post('/:id/review', async (req, res) => {
+router.post('/api/:id/review', async (req, res) => {
   try {
     const id = req.params.id;
     const reviewObj = req.body;  // לא רק review (string), אלא אובייקט
@@ -112,7 +112,7 @@ router.post('/:id/review', async (req, res) => {
 
 
 // Add wine through service (API)
-router.post('/', async(req, res) => {
+router.post('/api/', async(req, res) => {
   try {
     const newWine = req.body;
     if (!newWine.name || !newWine.category || !newWine.price) {
@@ -127,7 +127,7 @@ router.post('/', async(req, res) => {
 });
 
 // Delete wine by id
-router.delete('/:id', async (req, res) => {
+router.delete('/api/:id', async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -138,7 +138,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id/review/:index', async (req, res) => {
+router.delete('/api/:id/review/:index', async (req, res) => {
   try {
     const id = req.params.id;
     const index = parseInt(req.params.index);
